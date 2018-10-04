@@ -25,6 +25,8 @@ COPY ./www/adminer-4.6.3-mysql-en.php /var/www/html/adminer.php
 
 COPY ./conf/20-xdebug.ini /etc/php/7.1/apache2/conf.d/
 
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+
 EXPOSE 80
 
 
