@@ -7,7 +7,6 @@ RUN apt-get update && \
     apt-get update && \
     apt-get -y install \
             g++ \
-            git \
             curl \
             imagemagick \
             libfreetype6-dev \
@@ -24,10 +23,7 @@ RUN apt-get update && \
             libxslt1.1 \
             libxslt1-dev \
             libzip-dev \
-            mysql-client \
-            openssh-client \
-            nano \
-            unzip \
+            net-tools \
         --no-install-recommends && \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -40,8 +36,6 @@ RUN docker-php-ext-configure gd \
     docker-php-ext-configure bcmath && \
     docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql && \
     docker-php-ext-install \
-        soap \
-        zip \
         curl \
         bcmath \
         exif \
@@ -51,12 +45,17 @@ RUN docker-php-ext-configure gd \
         mbstring \
         opcache \
         pdo_mysql \
+        pdo_pgsql \
+        soap \
         xml \
         xsl \
-        xmlrpc
+        xmlrpc \
+        zip
 
 RUN pecl install xdebug-2.7.0RC2 && \
     docker-php-ext-enable xdebug
+
+RUN ln -s ${APACHE_CONFDIR}/mods-available/rewrite.load ${APACHE_CONFDIR}/mods-enabled/rewrite.load
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

@@ -3,6 +3,7 @@ version: "2.1"
 services:
   php:
     build: ./php/
+    container_name: web
     ports:
       - 89:80
       - 9099:9000
@@ -16,6 +17,7 @@ services:
 
   pgsql:
     build: ./pgsql/
+    container_name: db
     ports:
       - 5399:5432
     volumes:
