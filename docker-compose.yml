@@ -1,0 +1,32 @@
+version: "2.1"
+
+services:
+  php:
+    build: ./php/
+    ports:
+      - 89:80
+      - 9099:9000
+    volumes:
+      - "${PROJECT_ROOT}:/var/www/html"
+    networks:
+      - server
+      - database
+    depends_on:
+      - pgsql
+
+  pgsql:
+    build: ./pgsql/
+    ports:
+      - 5399:5432
+    volumes:
+      - ./pgsql/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USERNAME}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+    networks:
+      - database
+
+networks:
+  database:
+  server:
