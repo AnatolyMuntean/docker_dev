@@ -168,8 +168,8 @@ To connect to PgSQL instance, use `localhost` as host
 and port `5499` as port. Database credentials are as in
 the `.env` file created lately.
 To connect from within the containers, use the default
-ports for the respective application and the container names
-as hostname instead.
+ports for the respective application and the service names
+as hostname instead (see docker-compose.yml).
 
 Xdebug port is exposed at port `9099`.
 
@@ -185,5 +185,15 @@ sudo docker-compose down -v
 
 To execute a command **inside** a container:
 ```bash
-sudo docker exec CONTAINER_NAME COMMAN_NAME
+sudo docker exec CONTAINER_NAME COMMAND_NAME
+```
+
+To attach a terminal session:
+```bash
+sudo docker exec -it CONTAINER_NAME bash
+```
+
+For a list of running containers:
+```bash
+sudo docker ps
 ```
