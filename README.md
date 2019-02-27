@@ -151,7 +151,6 @@ sudo docker-compose up -d --build
 
 Usage
 ---
-
 The docker-ized containers are deployed with the following
 names:  
 Web server: `web`  
@@ -162,11 +161,15 @@ Web port: `89`
 Database port: `5499`  
 Xdebug port: `9099` 
 
-That is, to access the web application through the browser,
+That is, **from your host machine**,
+to access the web application through the browser,
 point the url to `localhost:81`.
 To connect to PgSQL instance, use `localhost` as host
 and port `5499` as port. Database credentials are as in
 the `.env` file created lately.
+To connect from within the containers, use the default
+ports for the respective application and the container names
+as hostname instead.
 
 Xdebug port is exposed at port `9099`.
 
