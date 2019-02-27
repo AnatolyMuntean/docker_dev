@@ -170,6 +170,11 @@ the `.env` file created lately.
 
 Xdebug port is exposed at port `9099`.
 
+To start a container (assuming it's already built):
+```bash
+sudo docker-compose up -d
+```
+
 To stop a container:
 ```bash
 sudo docker-compose down -v
