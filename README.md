@@ -13,7 +13,7 @@ Only one database/user is provided, more info in sections
 below.
 
 Environment provides:
-- `Apache2 v2.4` web-server with `PHP v7.3.2`;
+- `Apache2 v2.4` web-server with `PHP v7.2.15`;
 - Apache's `rewrite` module is enabled by default;
 - enabled PHP extensions:
     - curl
