@@ -171,8 +171,6 @@ To connect from within the containers, use the default
 ports for the respective application and the service names
 as hostname instead (see docker-compose.yml).
 
-Xdebug port is exposed at port `9099`.
-
 To start a container (assuming it's already built):
 ```bash
 sudo docker-compose up -d
